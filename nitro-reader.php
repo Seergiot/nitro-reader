@@ -133,24 +133,3 @@ class BinaryRead
 		return ((ord($v[0]) << 24) + (ord($v[1]) << 16) + (ord($v[2]) << 8) + (ord($v[3]) << 0));
 	}
 }
-
-
-$files = array_diff(scandir('./files'), array('.', '..'));
-foreach ($files  as $file) {
-	if (!endsWith($file, '.nitro')) {
-		continue;
-	}
-
-	$f = new NitroReader('./files/' .$file);
-	$nitroData = $f->Read(); // returns ['json' => $jsonFile, 'image' => $mainImage]
-	print_r( $nitroData );
-}
-
-function endsWith($haystack, $needle)
-{
-	$length = strlen($needle);
-	if (!$length) {
-		return true;
-	}
-	return substr($haystack, -$length) === $needle;
-}

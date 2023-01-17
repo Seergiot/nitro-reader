@@ -1,3 +1,3 @@
 @echo off
-php nitroreader.php
+php index.php
 pause
