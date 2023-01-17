@@ -25,6 +25,7 @@ class NitroReader
 
 	public function ReadNitro()
 	{
+		if(!$this->_file || $this->_file == null) return false;
 		$br = new BinaryRead($this->_file);
 
 		$fileCount = $br->ReadInt16();
